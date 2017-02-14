@@ -1,5 +1,3 @@
-#!/usr/bin/env rake
-
 # Style tests. Foodcritic
 namespace :style do
   begin
@@ -19,7 +17,7 @@ namespace :style do
     FoodCritic::Rake::LintTask.new(:chef) do |t|
       t.options = {
         fail_tags: ['any'],
-        progress: true
+        progress: true,
       }
     end
   rescue LoadError
@@ -29,3 +27,6 @@ end
 
 desc 'Run all style checks'
 task style: ['style:chef', 'style:ruby']
+
+# Default
+task default: %w(style)
