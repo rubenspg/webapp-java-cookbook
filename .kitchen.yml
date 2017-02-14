@@ -1,0 +1,28 @@
+---
+driver:
+  name: vagrant
+  driver_config:
+    http_proxy:  http://web-proxy.corp.hp.com:8080
+    https_proxy: http://web-proxy.corp.hp.com:8080
+  customize:
+    memory: 2048
+    cpus: 2
+#    network:
+#      - ["forwarded_port", {guest: 8080, host: 8080}] # tomcat default port
+provisioner:
+  name: chef_solo
+  require_chef_omnibus: 12.3.0
+  chef_omnibus_url: https://www.getchef.com/chef/install.sh
+  http_proxy:  http://web-proxy.corp.hp.com:8080
+  https_proxy: http://web-proxy.corp.hp.com:8080
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[webapp-java::default]
+    attributes:
+      apt:
+        key_proxy: 'http://web-proxy.corp.hp.com:8080'
