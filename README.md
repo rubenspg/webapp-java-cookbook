@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rubenspg/webapp-java-cookbook.svg?branch=master)](https://travis-ci.org/rubenspg/webapp-java-cookbook)
+
 # Cookbook to deploy Java application using ChefDK
 
 ## Description
