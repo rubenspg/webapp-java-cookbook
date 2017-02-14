@@ -8,4 +8,4 @@
 #
 include_recipe 'java'
 
-include_recipe 'webapp-java::tomcat'
+include_recipe 'webapp-java::application'
