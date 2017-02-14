@@ -1,6 +1,7 @@
 #!/usr/bin/env rake
 
-require 'rake'
+require 'rubocop/rake_task'
+require 'foodcritic'
 
 # Style tests. Foodcritic
 namespace :style do
