@@ -9,7 +9,3 @@
 include_recipe 'java'
 
 include_recipe 'webapp-java::tomcat'
-
-#execute "apt-get update" do
-#  command "sudo apt-get update"
-#end

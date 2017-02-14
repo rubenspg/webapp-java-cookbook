@@ -40,7 +40,7 @@ end
 # start the webapp-java tomcat service using a non-standard pic location
 tomcat_service 'webapp-java' do
   action [:start, :enable]
-  env_vars [{ 'CATALINA_PID' => '/opt/tomcat_webapp-java/bin/non_standard_location.pid' }, { 'SOMETHING' => 'some_value' }]
+  env_vars [{ 'CATALINA_PID' => '/opt/tomcat_webapp-java/bin/non_standard_location.pid' }]
   sensitive true
   tomcat_user 'vagrant'
   tomcat_group 'app_group'

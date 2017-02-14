@@ -1,0 +1,13 @@
+# This is the configuration default override used to check the rubocop source code.
+#   @See: gem file config/default.yml
+
+# Configuration parameters (defaults):
+#   AllowURI: true
+#   URISchemes:
+#     - http
+#     - https
+Metrics/LineLength:
+  Max: 120
+  
+EndOfLine:
+  Enabled: false
