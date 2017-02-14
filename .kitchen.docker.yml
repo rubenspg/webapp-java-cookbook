@@ -24,4 +24,4 @@ platforms:
 suites:
 - name: multi_instance
   run_list:
-  - recipe[test]
+  - recipe[webapp-java::default]
