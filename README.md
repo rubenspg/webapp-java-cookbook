@@ -64,6 +64,8 @@ Then execute the Vagrant file to create and provision the VM:
 
 ### Execute a test to check if the service is running
 
+#### Rake
+
 Once your VM is ready, you can check if your application was correclty deployed. You can check verifying if the following command return the expected result:
 
 ```
@@ -112,4 +114,3 @@ git checkout -b contrib/branch_name
 ```
 git push -u origin contrib/branch_name
 ```
-
