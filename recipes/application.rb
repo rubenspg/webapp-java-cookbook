@@ -34,11 +34,11 @@ execute 'unzip' do
   group node['application']['name']
   action :run
   command "unzip #{node['application']['zip_file']} -d #{node['application']['home_dir']}"
-  not_if { ::File.directory?(node['application']['home_dir']) }
+  not_if { ::File.exist?(node['application']['jar_file']) }
 end
 
 execute "execute #{node['application']['zip_file']}" do
-  command "/usr/bin/java jar #{node['application']['jar_file']} server #{node['application']['config_file']}"
+  command "/usr/bin/java -jar #{node['application']['jar_file']} server #{node['application']['config_file']}"
   cwd 'directory containing jar file'
   action :run
 end
