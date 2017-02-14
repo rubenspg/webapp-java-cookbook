@@ -1,3 +1,7 @@
+#!/usr/bin/env rake
+
+require 'rake'
+
 # Style tests. Foodcritic
 namespace :style do
   begin
