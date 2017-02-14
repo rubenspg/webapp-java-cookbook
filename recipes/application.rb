@@ -6,7 +6,7 @@
 #
 # Copyright 2017, Space Rubens
 #
-user node['application']['name']
+user 'vagrant'
 
 # put vagrant in the group so we can make sure we don't remove it by managing app_group
 group node['application']['name'] do
