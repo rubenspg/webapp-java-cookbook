@@ -33,15 +33,22 @@ apt_package 'unzip'
 
 execute 'unzip' do
   user node['application']['user_name']
-  group node['application']['user_group']
   action :run
-  command "unzip -j #{node['application']['zip_file']}"
+  command "unzip -ju #{node['application']['zip_file']}"
   cwd node['application']['home_dir']
   not_if { ::File.exist?(node['application']['jar_file']) }
 end
 
-execute 'execute app' do
-  command "/usr/bin/java -jar #{node['application']['jar_file']} server #{node['application']['config_file']}"
-  cwd node['application']['home_dir']
-  action :run
+# Drop off the init script
+cookbook_file node['application']['init_script'] do
+  source 'satest'
+  owner "root"
+  group "root"
+  mode "0755"
+end
+
+service "satest" do
+    supports :restart => true, :start => true, :stop => true
+    action [ :enable, :start ]
+    init_command node['application']['init_script']
 end

@@ -6,3 +6,4 @@ default['application']['home_dir']    = "/usr/share/#{node['application']['name'
 default['application']['zip_file']    = "#{node['application']['home_dir']}/#{node['application']['name']}.zip"
 default['application']['jar_file']    = "#{node['application']['home_dir']}/#{node['application']['name']}.jar"
 default['application']['config_file'] = "#{node['application']['home_dir']}/#{node['application']['name']}.yml"
+default['application']['init_script'] = '/etc/init.d/satest'

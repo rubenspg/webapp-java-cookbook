@@ -99,17 +99,10 @@ You should get something like:
 
 ### Troubleshooting
 
-If the application does not starts correctly or the installation failed for some reason, you can enter in the VM via Kitchen:
+If the application does not starts correctly or the installation failed for some reason, you can check the Kitchen log:
 
 ```
-kitchen login
-```
-
-In the VM, you can check the following logs:
-
-* Chef
-```
-cat /var/logs/chef/chef.log
+cat .kitchen/logs/default-ubuntu-1404.log
 ```
 
 ## TravisCI
