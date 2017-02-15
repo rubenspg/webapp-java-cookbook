@@ -8,7 +8,7 @@ In order to rebuild your environment at any time without loosing installed packa
 of Infrastructure as Code.
 The ChefDK + Vagrant tools allow you to code your infrastructure (VM, OS, Hypervisor, proxy, packages, etc) using Chefto provision your application and configure it.
 
-## webapp-java Cookbook
+## Webapp-java Cookbook
 
 This cookbook will deploy a simple Java application in a Tomcat webserver.
 
@@ -24,12 +24,14 @@ This cookbook will deploy a simple Java application in a Tomcat webserver.
 
 ### Attributes
 
-* default[:application][:url]         = URL of the zip file containing the jar file.
-* default[:application][:name]        = Application name
-* default[:application][:home_dir]    = Application's root folder
-* default[:application][:zip_file]    = Zip file's name
-* default[:application][:jar_file]    = Jar file's name
-* default[:application][:config_file] = Config file's name (YML)
+* default['application']['user_name']   = System user name
+* default['application']['user_group']  = System group name
+* default[:application][:url]           = URL of the zip file containing the jar file.
+* default[:application][:name]          = Application name
+* default[:application][:home_dir]      = Application's root folder
+* default[:application][:zip_file]      = Zip file's name
+* default[:application][:jar_file]      = Jar file's name
+* default[:application][:config_file]   = Config file's name (YML)
 
 ## How to use
 
@@ -70,7 +72,29 @@ kitchen converge
 Once your VM is ready, you can check if your application was correclty deployed. You can check verifying if the following command return the expected result:
 
 ```
-curl http://localhost:8081
+curl http://localhost:8889
+```
+
+You should get something like:
+
+```
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Metrics</title>
+</head>
+<body>
+  <h1>Operational Menu</h1>
+  <ul>
+    <li><a href="/metrics?pretty=true">Metrics</a></li>
+    <li><a href="/ping">Ping</a></li>
+    <li><a href="/threads">Threads</a></li>
+    <li><a href="/healthcheck">Healthcheck</a></li>
+  </ul>
+</body>
+</html>
+
 ```
 
 ### Troubleshooting
@@ -82,11 +106,6 @@ kitchen login
 ```
 
 In the VM, you can check the following logs:
-
-* Tomcat
-```
-cat /var/logs/tomcat/catalina.out
-```
 
 * Chef
 ```
@@ -107,7 +126,7 @@ You are welcome to contribute. Just follow these steps:
 ### Clone or fork the repository
 
 ```
-git clone git@github.com:rubenspg/dev-env.git
+git clone git@github.com:rubenspg/webapp-java-cookbook.git
 ```
 
 ### Do some work
@@ -129,7 +148,19 @@ chef exec rake
 
 Before you commit and push your changes, run the tests to make sure everything is working:
 ```
-chef exec rspec
+chef exec rspec spec/unit/recipes/default_test.rb
+```
+
+You will be able to see the code coverage:
+```
+ChefSpec Coverage report generated...
+
+  Total Resources:   7
+  Touched Resources: 7
+  Touch Coverage:    100.0%
+
+You are awesome and so is your test coverage! Have a fantastic day!
+
 ```
 
 ### Create a PR
