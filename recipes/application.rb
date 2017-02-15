@@ -42,13 +42,13 @@ end
 # Drop off the init script
 cookbook_file node['application']['init_script'] do
   source 'satest'
-  owner "root"
-  group "root"
-  mode "0755"
+  owner 'root'
+  group 'root'
+  mode '0755'
 end
 
-service "satest" do
-    supports :restart => true, :start => true, :stop => true
-    action [ :enable, :start ]
-    init_command node['application']['init_script']
+service 'satest' do
+  supports restart: true, start: true, stop: true
+  action [:enable, :start]
+  init_command node['application']['init_script']
 end
