@@ -24,6 +24,8 @@ This cookbook will deploy a simple Java application in a Tomcat webserver.
 
 ### Attributes
 
+*** Application ***
+
 * default['application']['user_name']   = System user name
 * default['application']['user_group']  = System group name
 * default[:application][:url]           = URL of the zip file containing the jar file.
@@ -32,6 +34,19 @@ This cookbook will deploy a simple Java application in a Tomcat webserver.
 * default[:application][:zip_file]      = Zip file's name
 * default[:application][:jar_file]      = Jar file's name
 * default[:application][:config_file]   = Config file's name (YML)
+* default['application']['pid_file']    = File name to store the process pid
+
+*** Configuration file ***
+* default['application']['adminPort'] = Admin HTTP port to access admin endpoints
+* default['application']['http-port'] = Application HTTP port
+* default['application']['logging']['level'] = Log Level [INFO, DEBUG, ERROR]
+* default['application']['logging']['loggers']['com.spaceape'] = Log Level [INFO, DEBUG, ERROR]
+* default['application']['logging']['console']['enabled'] = Enable console logging [true, false]
+* default['application']['logging']['file']['currentLogFilename'] = Logging file name
+* default['application']['logging']['file']['enabled'] = Enable file logging [true, false]
+* default['application']['logging']['file']['archivedLogFilenamePattern'] = Logging archieve file name
+* default['application']['logging']['file']['archivedFileCount'] = Number of archived files
+* default['application']['logging']['file']['timeZone'] = Timezone [UTC, GMT]
 
 ## How to use
 
