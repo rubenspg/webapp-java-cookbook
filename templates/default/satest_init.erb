@@ -1,8 +1,8 @@
 #!/bin/sh
-SERVICE_NAME=satest
-PATH_TO_JAR=/usr/share/satest/satest.jar
-PATH_TO_CONFIG=/usr/share/satest/satest.yml
-PID_PATH_NAME=/tmp/satest-pid
+SERVICE_NAME=<%= node['application']['name'] %>
+PATH_TO_JAR=<%= node['application']['jar_file'] %>
+PATH_TO_CONFIG=<%= node['application']['config_file'] %>
+PID_PATH_NAME=<%= node['application']['pid_file'] %>
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
@@ -37,7 +37,10 @@ case $1 in
             echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
-            echo "$SERVICE_NAME is not running ..."
+            echo "$SERVICE_NAME starting ..."
+            /usr/bin/java -jar $PATH_TO_JAR server $PATH_TO_CONFIG > /var/log/satest.log &
+            echo $! > $PID_PATH_NAME
+            echo "$SERVICE_NAME started ..."
         fi
     ;;
 esac

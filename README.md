@@ -105,6 +105,14 @@ If the application does not starts correctly or the installation failed for some
 cat .kitchen/logs/default-ubuntu-1404.log
 ```
 
+If you prefer login into the VM and check the logs:
+
+```
+kitchen login
+
+cat /usr/share/satest/satest.log
+```
+
 ## TravisCI
 
 TravisCI is continous integration service linked to this repository that executes the build process.
@@ -132,7 +140,8 @@ git checkout -b contrib/branch_name
 
 ### Check for foodcritic and Rubocop issues
 
-A good practice is to check if your changed files have foodcritic or Rubocop. To execute those tests just run (root folder):
+A good practice is to check if your changed files have foodcritic and Rubocop issues. To execute those tests just run (root folder):
+***Note that it will run the unit tests too***
 ```
 chef exec rake
 ```
@@ -141,7 +150,7 @@ chef exec rake
 
 Before you commit and push your changes, run the tests to make sure everything is working:
 ```
-chef exec rspec spec/unit/recipes/default_test.rb
+chef exec rspec
 ```
 
 You will be able to see the code coverage:
