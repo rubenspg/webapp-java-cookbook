@@ -1,8 +1,8 @@
 #
-# Recipe:: tomcat
+# Recipe:: webapp
 #
-# Installs and configure the Tomcat downloading the tarball directly from the apache server.
-# Implementation based on the example available at https://github.com/chef-cookbooks/tomcat
+# Installs and configure the web application downloading a zip file from an external server,
+# deploying and starting the jar file.
 #
 # Copyright 2017, Space Rubens
 #

@@ -10,7 +10,7 @@ The ChefDK + Vagrant tools allow you to code your infrastructure (VM, OS, Hyperv
 
 ## webapp-java Cookbook
 
-This cookbook will deploy a simple Java application in a Tomcat webserver.
+This cookbook will deploy a simple Java application ([DropWizard](http://www.dropwizard.io)).
 
 ### Requirements
 
