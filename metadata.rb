@@ -9,5 +9,4 @@ issues_url 'https://github.com/rubenspg/webapp-java-cookbook/issues'
 source_url 'https://github.com/rubenspg/webapp-java-cookbook'
 
 # Opscode Community Cookbooks
-depends 'tomcat', '~> 2.3.4'
 depends 'java'
